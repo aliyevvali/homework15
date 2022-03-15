@@ -26,7 +26,7 @@ namespace HomeWork
         }
         public void Shoot()
         {
-            if (bulletCapacityOfComb>=bulletCountInComb)
+            if (bulletCapacityOfComb>=bulletCountInComb &&bulletCapacityOfComb>0 &&bulletCountInComb>0)
             {
                 if (bulletCountInComb == 0) Console.WriteLine("silahda gulle yoxdur :(");
                 else bulletCountInComb -= 1; Console.WriteLine("silahdan bir gulle atildi---->");
@@ -77,7 +77,7 @@ namespace HomeWork
         }
         public void ChangeFireMode()
         {
-            if (bulletCapacityOfComb>=bulletCountInComb)
+            if (bulletCapacityOfComb>=bulletCountInComb )
             {
                 Console.WriteLine("(True auto mod)(False single mod)");
                 bool secim = bool.Parse(Console.ReadLine());
