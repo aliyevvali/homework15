@@ -26,22 +26,38 @@ namespace HomeWork
         }
         public void Shoot()
         {
-            if (bulletCountInComb == 0) Console.WriteLine("silahda gulle yoxdur :(");
-            else bulletCountInComb -= 1; Console.WriteLine("silahdan bir gulle atildi---->");
+            if (bulletCapacityOfComb>=bulletCountInComb)
+            {
+                if (bulletCountInComb == 0) Console.WriteLine("silahda gulle yoxdur :(");
+                else bulletCountInComb -= 1; Console.WriteLine("silahdan bir gulle atildi---->");
+            }
+            else
+            {
+                Console.WriteLine("daragin max tutumundan cox gulle sayi ola bilmez");
+            }
+            
                         
         }
         public void Fire()
         {
-            if (bulletCountInComb == 0) Console.WriteLine("Silahda gulle yoxdur:(");                     
+            if (bulletCapacityOfComb >= bulletCountInComb)
+            {
+                if (bulletCountInComb == 0) Console.WriteLine("Silahda gulle yoxdur:(");
+                else
+                {
+                    double firetime = bulletCountInComb * timeOfDischargeOfComb / bulletCapacityOfComb;
+                    Console.WriteLine(firetime + "san");
+                }
+            }
             else
             {
-                double firetime = bulletCountInComb * timeOfDischargeOfComb / bulletCapacityOfComb ;
-                Console.WriteLine(firetime+ "san");
+                Console.WriteLine("daragin max tutumundan cox gulle sayi ola bilmez");
             }
 
         }
         public int GetRemainBulletCount()
         {
+
             if (bulletCapacityOfComb>bulletCountInComb) return bulletCapacityOfComb - bulletCountInComb;           
             else return -1;
         }
@@ -61,20 +77,27 @@ namespace HomeWork
         }
         public void ChangeFireMode()
         {
-            Console.WriteLine("(True auto mod)(False single mod)");
-            bool secim = bool.Parse(Console.ReadLine());
-            if (secim == true)
+            if (bulletCapacityOfComb>=bulletCountInComb)
             {
-                autoOrSingle = true;
+                Console.WriteLine("(True auto mod)(False single mod)");
+                bool secim = bool.Parse(Console.ReadLine());
+                if (secim == true)
+                {
+                    autoOrSingle = true;
+                }
+                else if (secim == false)
+                {
+                    autoOrSingle = false;
+                }
+                else
+                {
+                    Console.WriteLine("True ve ya False'den istifade edin");
+                }
             }
-            else if (secim == false)
+            else
             {
-                autoOrSingle = false;
+                Console.WriteLine("daragin max tutumundan cox gulle sayi ola bilmez");
             }
-            else 
-            {
-                Console.WriteLine("True ve ya False'den istifade edin");
-            }              
         }
 
     }

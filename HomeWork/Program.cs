@@ -40,7 +40,7 @@ namespace HomeWork
                     case "3":
                         weapon.GetRemainBulletCount();
                         int bullet = weapon.GetRemainBulletCount();
-                        if (bullet == -1) Console.WriteLine("Maxsdan artiq gulle qoyumaq olmaz");
+                        if (bullet == -1) Console.WriteLine("daragin max tutumundan cox gulle sayi ola bilmez");
                         else Console.WriteLine("Daragin tam dolmasi ucun lazim olan gulle sayi :" + bullet);   
                         
                         break;
